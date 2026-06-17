@@ -10,7 +10,7 @@ while($i -lt $len){
     # ASTUCE : Le fait d'ajouter [string] "nettoie" la ligne de toutes les métadonnées (PSPath, etc.)
     # pour en faire un texte brut parfait.
     $lignes0 = [string]$lignes[$i]
-    $increment = 3
+    $increment = 4
     
     # Sécurité : Si on arrive à la fin et qu'il manque la ligne d'heure, on arrête
     if (($i + 1) -ge $len) { break }
@@ -34,14 +34,14 @@ while($i -lt $len){
         $type = ($infosLigne0[0] -split " ")[0]
         $res = "Pas de ressource"
         $nom = "Pas de nom"
-        $increment = 2 # On n'a pas de ligne prof pour les rattrapages
+        $increment = 3 # On n'a pas de ligne prof pour les rattrapages
     }
     else {
         $type = $infosLigne0[0]
         $res = $infosLigne0[1]
         $nom = $infosLigne0[2]
         if ($type -eq "NE") {
-            $increment = 2 # On n'a pas de ligne prof pour les NET
+            $increment = 3 # On n'a pas de ligne prof pour les NET
         }
         if ($nom -match "(.val)"){
             $type = "Éval"
@@ -59,7 +59,7 @@ while($i -lt $len){
 
     # On s'assure qu'on ne déborde pas du fichier avant de lire la 3ème ligne
 
-    if ($increment -eq 2) {
+    if ($increment -eq 3) {
         $prof = "Pas de professeur"
     }
     else {
@@ -74,6 +74,12 @@ while($i -lt $len){
         }
     }
 
+    if ($increment -eq 3) {
+        $jour = [string]$lignes[$i + 2] # On prend la ligne de l'heure comme jour si pas de prof
+    } else {
+        $jour = [string]$lignes[$i + 3] # On prend la ligne du prof comme jour si prof présent
+    }
+
     # --- 4. CREATION ET AJOUT DE L'OBJET ---
     # On crée un objet PowerShell propre (beaucoup mieux que de créer une string JSON à la main)
     $coursObj = [PSCustomObject]@{
@@ -84,6 +90,7 @@ while($i -lt $len){
         Heure_Fin   = $heure_fin
         Prof        = $prof
         Salle       = $salle
+        Date        = $jour
     }
     
     # On ajoute ce cours à notre liste
