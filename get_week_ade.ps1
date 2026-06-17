@@ -5,7 +5,7 @@ $CheminGecko = "$PWD\driver_firefox"
 # On ajoute ce dossier au PATH pour la durée d'exécution du script
 $env:PATH += ";$CheminGecko"
 
-$url = "URL_PLANNING_MASQUEE"
+$url = $env:URL
 
 # Charge le module dans la session active
 Import-Module -Name Selenium

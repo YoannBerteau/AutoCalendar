@@ -18,9 +18,7 @@ Premièrement il faut installer les modules nécessaires pour Selenium. Pour cel
 Install-Module -Name Selenium -Scope CurrentUser
 ```
 
-Une fois le module installé, vous pouvez exécuter le script `get_week_ade.ps1` pour récupérer les informations de votre emploi du temps depuis ADE. Assurez-vous d'avoir le fichier `.env` avec l'URL de votre emploi du temps dans le même répertoire que le script.
-
-.env
+Une fois le module installé, vous pouvez exécuter le script `get_week_ade.ps1` pour récupérer les informations de votre emploi du temps depuis ADE. Assurez-vous d'avoir le fichier `.env` avec l'URL de votre emploi du temps dans le même répertoire que le script, et exécutez le script `get_env.ps1` pour charger les variables d'environnement.
 
 ```env
 URL=https://votre_url_ade
