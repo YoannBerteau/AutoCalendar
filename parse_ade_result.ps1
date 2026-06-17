@@ -1,4 +1,4 @@
-# 1. On lit tout le contenu du fichier HTML sauvegardé
+﻿# 1. On lit tout le contenu du fichier HTML sauvegardé
 # (Pensez à adapter le chemin vers votre vrai fichier)
 $CheminFichier = ".\ResultADE.html"
 $CodeSourceHtml = Get-Content -Path $CheminFichier -Raw -Encoding UTF8

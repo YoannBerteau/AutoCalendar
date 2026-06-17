@@ -1,4 +1,4 @@
-# On définit le chemin complet vers votre dossier "driver_firefox"
+﻿# On définit le chemin complet vers votre dossier "driver_firefox"
 # $PWD correspond au dossier actuel où s'exécute le script
 if ( $IsWindows ) {
     $CheminGecko = "$PWD\driver_firefox"
