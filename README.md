@@ -27,3 +27,10 @@ URL=https://votre_url_ade
 ### Parse ADE Result
 
 Cette étape consiste à analyser le fichier HTML récupéré par le script précédent. Exécutez le script `parse_ade_result.ps1` pour extraire les informations pertinentes et les sauvegarder dans un fichier texte.
+
+
+
+# Utils
+
+https://calendar.google.com/calendar/u/0/r/settings/addbyurl?pli=1
+https://www.neutrinoapi.com/api/email-validate/
