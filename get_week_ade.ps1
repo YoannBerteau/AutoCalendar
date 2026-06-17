@@ -10,19 +10,30 @@ $url = "URL_PLANNING_MASQUEE"
 # Charge le module dans la session active
 Import-Module -Name Selenium
 
-# On lance Firefox au lieu de Chrome (le paramètre -Quiet permet de le lancer en arrière-plan)
-$driver = Start-SeFirefox -Quiet
+# 1. On crée les options avancées pour Firefox
+$options = New-Object OpenQA.Selenium.Firefox.FirefoxOptions
 
-# On va sur l'URL
-Enter-SeUrl -Driver $driver -Url $url
+# On active le mode headless manuellement
+$options.AddArgument("--headless")
 
-# On attend que la page charge
-Start-Sleep -Seconds 3
+# On force une résolution classique d'ordinateur de bureau
+$options.AddArgument("--window-size=1920,1080")
 
-# On récupère le code
+# On falsifie le User-Agent pour ressembler à un Firefox tout à fait normal sous Windows
+$options.SetPreference("general.useragent.override", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0")
+
+# 2. On lance Firefox avec nos options personnalisées
+$driver = New-Object OpenQA.Selenium.Firefox.FirefoxDriver($options)
+
+# 3. On exécute la navigation
+$driver.Navigate().GoToUrl($url)
+
+# On laisse un peu plus de temps en headless (le rendu sans GPU peut être plus lent)
+Start-Sleep -Seconds 5 
+
 $codeSource = $driver.PageSource
 
-# On ferme le navigateur
-Stop-SeDriver -Driver $driver
+# On ferme proprement
+$driver.Quit()
 
 Add-Content -Path "ResultADE.txt" -Value $codeSource
