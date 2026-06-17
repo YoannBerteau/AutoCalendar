@@ -1,7 +1,17 @@
+# On définit le chemin complet vers votre dossier "driver_firefox"
+# $PWD correspond au dossier actuel où s'exécute le script
+$CheminGecko = "$PWD\driver_firefox"
+
+# On ajoute ce dossier au PATH pour la durée d'exécution du script
+$env:PATH += ";$CheminGecko"
+
 $url = "URL_PLANNING_MASQUEE"
 
+# Charge le module dans la session active
+Import-Module -Name Selenium
+
 # On lance Firefox au lieu de Chrome (le paramètre -Quiet permet de le lancer en arrière-plan)
-$driver = Start-SeFirefox -Quiet 
+$driver = Start-SeFirefox -Quiet -Headless
 
 # On va sur l'URL
 Enter-SeUrl -Driver $driver -Url $url
