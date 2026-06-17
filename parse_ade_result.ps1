@@ -104,6 +104,6 @@ if ($null -ne $planningDiv) {
 [System.IO.File]::WriteAllLines("$PWD\ParsedADE.txt", $lignesSortie, [System.Text.Encoding]::UTF8)
 
 # Suppression du fichier HTML d'origine
-# if (Test-Path $CheminFichier) {
-#     Remove-Item -Path $CheminFichier -Force
-# }
+if (Test-Path $CheminFichier) {
+    Remove-Item -Path $CheminFichier -Force
+}
