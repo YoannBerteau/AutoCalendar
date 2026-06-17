@@ -1,9 +1,8 @@
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
-$val = 0
-while ($val -lt 5) {
-    Start-Process chrome.exe '--new-window https://calendar.google.com/calendar/u/0/r/settings/addbyurl?pli=1'
-}
+
+Start-Process chrome.exe '--new-window https://calendar.google.com/calendar/u/0/r/settings/addbyurl?pli=1'
+
 # Création et configuration de la fenêtre d'interface
 $size = New-Object System.Drawing.Size(300,620)
 $stepsForm = New-Object System.Windows.Forms.Form
