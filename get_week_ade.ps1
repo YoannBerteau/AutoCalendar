@@ -1,6 +1,3 @@
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-[Console]::InputEncoding  = [System.Text.Encoding]::UTF8
-
 # On définit le chemin complet vers votre dossier "driver_firefox"
 # $PWD correspond au dossier actuel où s'exécute le script
 $CheminGecko = "$PWD\driver_firefox"
@@ -39,4 +36,4 @@ $codeSource = $driver.PageSource
 # On ferme proprement
 $driver.Quit()
 
-Add-Content -Path "ResultADE.html" -Value $codeSource
+$codeSource | Out-File -FilePath "ResultADE.html" -Encoding UTF8
