@@ -11,7 +11,7 @@ $url = "URL_PLANNING_MASQUEE"
 Import-Module -Name Selenium
 
 # On lance Firefox au lieu de Chrome (le paramètre -Quiet permet de le lancer en arrière-plan)
-$driver = Start-SeFirefox -Quiet -Headless
+$driver = Start-SeFirefox -Quiet
 
 # On va sur l'URL
 Enter-SeUrl -Driver $driver -Url $url
@@ -25,4 +25,4 @@ $codeSource = $driver.PageSource
 # On ferme le navigateur
 Stop-SeDriver -Driver $driver
 
-Write-Output $codeSource
+Add-Content -Path "ResultADE.txt" -Value $codeSource
