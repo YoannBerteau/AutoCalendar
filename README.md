@@ -32,5 +32,5 @@ Cette étape consiste à analyser le fichier HTML récupéré par le script pré
 
 # Utils
 
-https://calendar.google.com/calendar/u/0/r/settings/addbyurl?pli=1
+https://calendar.google.com/calendar/u/0/r/settings/addbyurl?pli=1  
 https://www.neutrinoapi.com/api/email-validate/
