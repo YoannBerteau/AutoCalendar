@@ -30,3 +30,5 @@ while ($true) {
 
 # Pour afficher le tout premier élément trouvé par exemple :
 $mesCours | Out-File -FilePath "ParsedADE.txt" -Encoding UTF8
+
+Remove-Item -Path $CheminFichier
