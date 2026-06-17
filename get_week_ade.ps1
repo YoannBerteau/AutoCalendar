@@ -1,9 +1,16 @@
 # On définit le chemin complet vers votre dossier "driver_firefox"
 # $PWD correspond au dossier actuel où s'exécute le script
-$CheminGecko = "$PWD\driver_firefox"
+if ( $IsWindows ) {
+    $CheminGecko = "$PWD\driver_firefox"
 
-# On ajoute ce dossier au PATH pour la durée d'exécution du script
-$env:PATH += ";$CheminGecko"
+    # On ajoute ce dossier au PATH pour la durée d'exécution du script
+    $env:PATH += ";$CheminGecko"
+} else {
+    $CheminGecko = "$PWD/driver_firefox"
+
+    $env:PATH += ":$CheminGecko"
+}
+
 
 $url = $env:URL
 
