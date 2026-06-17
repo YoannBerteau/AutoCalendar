@@ -1,7 +1,7 @@
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
-Start-Process chrome.exe '--new-window https://calendar.google.com/calendar/u/0/r/settings/addbyurl?pli=1'
+Start-Process 'https://calendar.google.com/calendar/u/0/r/settings/addbyurl?pli=1'
 
 # Création et configuration de la fenêtre d'interface
 $size = New-Object System.Drawing.Size(300,620)
