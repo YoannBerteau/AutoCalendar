@@ -29,8 +29,17 @@ $driver = New-Object OpenQA.Selenium.Firefox.FirefoxDriver($options)
 $driver.Navigate().GoToUrl($url)
 
 # On laisse un peu plus de temps en headless (le rendu sans GPU peut être plus lent)
-Start-Sleep -Seconds 5 
+$driver.Manage().Timeouts().ImplicitWait = [TimeSpan]::FromSeconds(15)
 
+$semaineSouhaitee = "S27" # Pour debug
+
+$xpathSemaine = "//button[contains(text(), '$semaineSouhaitee')]"
+$boutonSemaine = $driver.FindElement([OpenQA.Selenium.By]::XPath($xpathSemaine))
+$boutonSemaine.Click()
+
+$driver.Manage().Timeouts().ImplicitWait = [TimeSpan]::FromSeconds(15) # sa peremt de remplacer Start-Sleep -Seconds 3 qui est pas fou en opti
+
+# Récupération du code source mis à jour
 $codeSource = $driver.PageSource
 
 # On ferme proprement
