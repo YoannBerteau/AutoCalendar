@@ -13,10 +13,13 @@ if (-not (Test-Path $CheminFichier)) {
 # Lecture brute du fichier HTML (Sécurisé en UTF-8)
 $CodeSourceHtml = [System.IO.File]::ReadAllText($CheminFichier, [System.Text.Encoding]::UTF8)
 
-# Chargement forcé en UTF-8 pour le parseur COM htmlfile
-$CodeSourceHtml = Get-Content -Path $CheminFichier -Raw -Encoding UTF8
+# Création du parseur COM
 $ParseurHtml = New-Object -ComObject "htmlfile"
-$ParseurHtml.IHTMLDocument2_write($CodeSourceHtml)
+
+# CORRECTION DÉFINITIVE ICI : 
+# On transforme le texte en un tableau d'octets (Bytes) pour que le vieux parseur COM l'accepte sans erreur.
+$TableauDeBytes = [System.Text.Encoding]::Unicode.GetBytes($CodeSourceHtml)
+$ParseurHtml.write($TableauDeBytes)
 $ParseurHtml.Close()
 
 # --- 2. RECUPERATION DES DATES DE LA SEMAINE (ID 4 à 16) ---
