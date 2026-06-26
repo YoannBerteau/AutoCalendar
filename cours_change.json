@@ -1,0 +1,202 @@
+[
+  {
+    "Type": "TP",
+    "Ressource": "R4.07 Communication G01 (éval) Moodle",
+    "Nom_Matiere": null,
+    "Heure_debut": "08h00",
+    "Heure_Fin": "10h30",
+    "Prof": "BOUCHE Emmanuelle",
+    "Salle": "RT403",
+    "Date": "29/06/2026"
+  },
+  {
+    "Type": "Éval",
+    "Ressource": "R4.12",
+    "Nom_Matiere": "IOM (éval) Moodle",
+    "Heure_debut": "14h30",
+    "Heure_Fin": "15h30",
+    "Prof": "FORTINO Nicolas",
+    "Salle": "RT404",
+    "Date": "29/06/2026"
+  },
+  {
+    "Type": "Éval",
+    "Ressource": "R4.03",
+    "Nom_Matiere": "Physique NF (éval) Moodle",
+    "Heure_debut": "16h00",
+    "Heure_Fin": "17h00",
+    "Prof": "FORTINO Nicolas",
+    "Salle": "RT404",
+    "Date": "29/06/2026"
+  },
+  {
+    "Type": "TP",
+    "Ressource": "R4.05",
+    "Nom_Matiere": "Auto admin G01 Moodle",
+    "Heure_debut": "08h00",
+    "Heure_Fin": "11h00",
+    "Prof": "BERTRAND Yoann",
+    "Salle": "RT202",
+    "Date": "30/06/2026"
+  },
+  {
+    "Type": "Éval",
+    "Ressource": "R4.05",
+    "Nom_Matiere": "Auto admin (éval) Moodle",
+    "Heure_debut": "11h00",
+    "Heure_Fin": "12h30",
+    "Prof": "BERTRAND Yoann",
+    "Salle": "RT202",
+    "Date": "30/06/2026"
+  },
+  {
+    "Type": "TP",
+    "Ressource": "R4.06",
+    "Nom_Matiere": "Anglais G01 Moodle",
+    "Heure_debut": "14h00",
+    "Heure_Fin": "15h30",
+    "Prof": "MOUGEL Caroline",
+    "Salle": "RT305",
+    "Date": "30/06/2026"
+  },
+  {
+    "Type": "CM",
+    "Ressource": "R4.06",
+    "Nom_Matiere": "Anglais Moodle",
+    "Heure_debut": "15h30",
+    "Heure_Fin": "17h00",
+    "Prof": "MOUGEL Caroline",
+    "Salle": "RT404",
+    "Date": "30/06/2026"
+  },
+  {
+    "Type": "TP",
+    "Ressource": "R4.02",
+    "Nom_Matiere": "Transmissions G01 Moodle",
+    "Heure_debut": "08h00",
+    "Heure_Fin": "11h00",
+    "Prof": "THEYS Celine",
+    "Salle": "RT203",
+    "Date": "01/07/2026"
+  },
+  {
+    "Type": "Rattrapages",
+    "Ressource": "Pas de ressource",
+    "Nom_Matiere": "Pas de nom",
+    "Heure_debut": "11h30",
+    "Heure_Fin": "12h30",
+    "Prof": "Pas de professeur",
+    "Salle": null,
+    "Date": "01/07/2026"
+  },
+  {
+    "Type": "Éval",
+    "Ressource": "R4.02",
+    "Nom_Matiere": "Transmissions (éval) Moodle",
+    "Heure_debut": "13h30",
+    "Heure_Fin": "15h00",
+    "Prof": "THEYS Celine",
+    "Salle": "RT404",
+    "Date": "01/07/2026"
+  },
+  {
+    "Type": "Rattrapages",
+    "Ressource": "Pas de ressource",
+    "Nom_Matiere": "Pas de nom",
+    "Heure_debut": "15h00",
+    "Heure_Fin": "16h30",
+    "Prof": "Pas de professeur",
+    "Salle": "RT406",
+    "Date": "01/07/2026"
+  },
+  {
+    "Type": "Rattrapages",
+    "Ressource": "Pas de ressource",
+    "Nom_Matiere": "Pas de nom",
+    "Heure_debut": "16h30",
+    "Heure_Fin": "18h00",
+    "Prof": "Pas de professeur",
+    "Salle": "RT406",
+    "Date": "01/07/2026"
+  },
+  {
+    "Type": "TP",
+    "Ressource": "R4.07 Communication G01 (éval) Moodle",
+    "Nom_Matiere": null,
+    "Heure_debut": "08h00",
+    "Heure_Fin": "09h30",
+    "Prof": "BOUCHE Emmanuelle",
+    "Salle": "RT404",
+    "Date": "02/07/2026"
+  },
+  {
+    "Type": "TP",
+    "Ressource": "R4.04",
+    "Nom_Matiere": "Réseaux cellulaires G01 Moodle",
+    "Heure_debut": "09h30",
+    "Heure_Fin": "12h30",
+    "Prof": "PAYAN Frederic",
+    "Salle": "RT503",
+    "Date": "02/07/2026"
+  },
+  {
+    "Type": "Éval",
+    "Ressource": "R4.04",
+    "Nom_Matiere": "Réseaux cellulaires (eval) Moodle",
+    "Heure_debut": "13h30",
+    "Heure_Fin": "15h00",
+    "Prof": "PAYAN Frederic",
+    "Salle": "RT404",
+    "Date": "02/07/2026"
+  },
+  {
+    "Type": "Rattrapages",
+    "Ressource": "Pas de ressource",
+    "Nom_Matiere": "Pas de nom",
+    "Heure_debut": "15h30",
+    "Heure_Fin": "17h00",
+    "Prof": "Pas de professeur",
+    "Salle": "RT406",
+    "Date": "02/07/2026"
+  },
+  {
+    "Type": "Soutenance Alternance",
+    "Ressource": null,
+    "Nom_Matiere": null,
+    "Heure_debut": "08h00",
+    "Heure_Fin": "09h30",
+    "Prof": "Pas de professeur",
+    "Salle": null,
+    "Date": "Soutenance Alternance"
+  },
+  {
+    "Type": "Éval",
+    "Ressource": "09h30",
+    "Nom_Matiere": "11h00",
+    "Heure_debut": "03/07/2026",
+    "Heure_Fin": null,
+    "Prof": "Pas de professeur",
+    "Salle": null,
+    "Date": "11h00 - 12h30"
+  },
+  {
+    "Type": "Éval",
+    "Ressource": "03/07/2026",
+    "Nom_Matiere": null,
+    "Heure_debut": "Soutenance",
+    "Heure_Fin": null,
+    "Prof": "Pas de professeur",
+    "Salle": null,
+    "Date": "03/07/2026"
+  },
+  {
+    "Type": "Soutenance Alternance",
+    "Ressource": null,
+    "Nom_Matiere": null,
+    "Heure_debut": "15h30",
+    "Heure_Fin": "17h00",
+    "Prof": "Pas de professeur",
+    "Salle": null,
+    "Date": ""
+  }
+]

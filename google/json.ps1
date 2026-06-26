@@ -3,6 +3,7 @@ Import-Module PSGSuite -Force
 $P12Path = $env:P12PATH
 $RobotEmail = $env:ROBOT_EMAIL
 $CalendarId = $env:CALENDARD_ID
+$DiscordWebhook = $env:DISCORD_WEBHOOK
 
 Set-PSGSuiteConfig -ConfigName "LinuxBot" -SetAsDefaultConfig -P12KeyPath $P12Path -AppEmail $RobotEmail -AdminEmail $RobotEmail
 
@@ -31,6 +32,24 @@ Par exemple pour les soutenances, les secrétaires ont mis n'importe quoi :
 },
 
 #>
+
+function sendDiscordWebhook {
+    param (
+        [string]$WebhookUrl,
+        [string]$Message
+    )
+
+    $payload = @{
+        content = $Message
+    } | ConvertTo-Json -Depth 3
+
+    try {
+        Invoke-RestMethod -Uri $WebhookUrl -Method Post -Body $payload -ContentType 'application/json' | Out-Null
+    }
+    catch {
+        Write-Error "Échec de l'envoi au webhook Discord : $_"
+    }
+}
 
 function createEvents {
     param (
@@ -68,7 +87,8 @@ function updateEvents {
     param (
         [string]$CalendarId,
         [string]$EventId,
-        [object]$cours
+        [object]$cours,
+        [string]$WebhookUrl
     )
 
     if ($cours.Salle) {
@@ -91,6 +111,10 @@ function updateEvents {
     try {
         $EvenementMisAJour = Update-GSCalendarEvent @params -ErrorAction Stop
         Write-Host "Cours mis à jour avec l'ID : $($EvenementMisAJour.Id)" -ForegroundColor Green
+        
+        if ($WebhookUrl) {
+            sendDiscordWebhook -WebhookUrl $WebhookUrl -Message "@everyone Le cours $($cours.Type) du $($cours.Date) a été modifié. $($salle)"
+        }
     }
     catch {
         Write-Error "Échec de la mise à jour de l'événement : $_"
@@ -118,8 +142,22 @@ foreach ($cours in $json_change) {
     $EventExistant = $EventsDuJour | Where-Object { $_.Summary -match $cours.Type -and $_.Description -match $cours.Prof -and ([datetime]$_.Start.DateTime) -eq $DateHeureDebutJson } | Select-Object -First 1
 
     if ($EventExistant) {
-        Write-Host "  -> Événement existant trouvé, on met à jour !"
-        updateEvents -CalendarId $CalendarId -EventId $EventExistant.Id -cours $cours
+        
+        if ($cours.Salle) {
+            $salle = "[$($cours.Salle)] "
+        } else {
+            $salle = ""
+        }
+
+        $ExpectedSummary = "$salle$($cours.Type)"
+        $ExpectedDescription = "$($cours.Ressource)<br>$($cours.Prof)"
+        $ExpectedLocation = "$($cours.Salle)"
+        $ExpectedEnd = [datetime]::ParseExact("$($cours.Date) $($cours.Heure_Fin)", "dd/MM/yyyy H\hmm", $null)
+
+        if ($EventExistant.Summary -ne $ExpectedSummary -or $EventExistant.Description -ne $ExpectedDescription -or $EventExistant.Location -ne $ExpectedLocation -or ([datetime]$EventExistant.End.DateTime) -ne $ExpectedEnd) {
+            Write-Host "  -> Événement existant modifié, on met à jour !"
+            updateEvents -CalendarId $CalendarId -EventId $EventExistant.Id -cours $cours -WebhookUrl $DiscordWebhook
+        }
     } 
     else {
         Write-Host "  -> Aucun événement correspondant, on le crée !"
