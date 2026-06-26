@@ -124,6 +124,11 @@ function updateEvents {
 foreach ($cours in $json_change) {
     
     # Ici une petite regex pour éviter les problèmes liés au cas de soutenances
+    <#
+    regex -> \d{2}
+    le \d c'est digits et ensuite on mets combien on veut.
+    on peut aussi faire \d{1,2} donc dire il y a entre 1 et 2 chiffres
+    #>
     if ($cours.Date -notmatch "^\d{2}/\d{2}/\d{4}$" -or $cours.Heure_debut -notmatch "\d{1,2}h\d{2}" -or $cours.Heure_Fin -notmatch "\d{1,2}h\d{2}") {
         Write-Host "Ignoré : Données invalides (Date ou Heure) pour le cours $($cours.Type) du $($cours.Date)" -ForegroundColor Yellow
         continue 
