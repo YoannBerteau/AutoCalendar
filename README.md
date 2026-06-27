@@ -11,35 +11,35 @@
 
 ## Guide d'utilisation
 
-### Guide de reproduction : Ma configuration Google
+### Guide de reproduction : Configuration Google
 
-Pour que mon script PowerShell puisse interagir avec mon agenda, voici les étapes exactes que j'ai suivies côté Google :
+Pour que le script PowerShell puisse interagir avec l'agenda, voici les étapes exactes a suivre côté Google :
 
-1. **Créer le compte "Maître" :** J'ai créé un compte Google personnel classique qui me sert de planning de redistribution.
-2. **Créer le projet Cloud :** Je me suis rendu sur Google Cloud Console et j'ai créé un nouveau projet nommé **"AutoPlanner"**.
-3. **Activer l'API Google Calendar :** Dans la bibliothèque d'API, j'ai cherché et activé *Google Calendar API*.
+1. **Créer le compte "Maître" :** Un compte Google personnel classique qui sert de planning de redistribution.
+2. **Créer le projet Cloud :** Sur Google Cloud Console et créer un nouveau projet nommé **"AutoPlanner"**.
+3. **Activer l'API Google Calendar :** Dans la bibliothèque d'API, chercher et activer *Google Calendar API*.
    * *Note sur les quotas gratuits : La limite est très large (10 000 requêtes / minute pour le projet, et 600 requêtes / minute par utilisateur).*
-4. **Créer le "Robot" (Compte de service) :** Dans *Identifiants*, j'ai créé un compte de service. Google m'a généré une adresse e-mail dédiée.
-5. **Générer la clé P12 :** Dans l'onglet "Clés" de ce compte de service, j'ai généré et téléchargé une clé au format **P12** (c'est elle que mon script PowerShell utilise pour s'authentifier).
-6. **Autoriser le Robot sur l'agenda :** J'ai ouvert Google Agenda avec mon compte maître. Je suis allé dans les paramètres de partage de l'agenda, j'ai ajouté l'e-mail de mon compte de service et je lui ai donné obligatoirement les droits : **"Apporter des modifications aux événements"**.
+4. **Créer le "Robot" (Compte de service) :** Dans *Identifiants*, créer un compte de service. Google a généré une adresse e-mail dédiée.
+5. **Générer la clé P12 :** Dans l'onglet "Clés" de ce compte de service, générer et télécharger une clé au format **P12** (c'est elle que le script PowerShell utilise pour s'authentifier).
+6. **Autoriser le Robot sur l'agenda :** Ouvrir Google Agenda avec le compte maître. Aller dans les paramètres de partage de l'agenda, ajouter l'e-mail du compte de service et donner obligatoirement les droits : **"Apporter des modifications aux événements"**.
 
 ---
 
-#### Comment je redistribue le planning aux utilisateurs
+#### Comment redistribuer le planning aux utilisateurs
 
-Une fois mon agenda rempli automatiquement par le script, voici la méthode que j'utilise pour le partager à mes utilisateurs finaux sans le rendre public sur internet :
+Une fois l'agenda rempli automatiquement par le script, voici la méthode a utiliser pour le partager aux utilisateurs finaux sans le rendre public sur internet :
 
-#### De mon côté (Administrateur / Compte maître)
-1. Je vais dans les paramètres de mon calendrier principal.
-2. Je descends jusqu'à la section **"Intégrer l'agenda"**.
-3. Je repère la sous-partie **"Adresse secrète au format iCal"**.
-4. Je copie ce lien et je le transmets de manière sécurisée à mes utilisateurs. *(Cela me permet de partager le calendrier en lecture seule de façon privée).*
+#### Côté (Administrateur / Compte maître)
+1. Dans les paramètres du calendrier principal.
+2. Descendre jusqu'à la section **"Intégrer l'agenda"**.
+3. Repèrer la sous-partie **"Adresse secrète au format iCal"**.
+4. Copier ce lien et le transmettre de manière sécurisée aux utilisateurs. *(Cela permet de partager le calendrier en lecture seule de façon privée).*
 
-#### Du côté de mes utilisateurs
+#### Du côté utilisateurs
 1. L'utilisateur ouvre son propre Google Agenda.
 2. Dans le menu de gauche, à côté de "Autres agendas", il clique sur le bouton **"+"** (Ajouter un agenda).
 3. Il choisit **"À partir de l'URL"**.
-4. Il colle l'adresse secrète iCal que je lui ai fournie. Le planning synchronisé apparaît instantanément !
+4. Il colle l'adresse secrète iCal fournie. Le planning synchronisé apparaît instantanément !
 
 ### Get Week ADE
 
